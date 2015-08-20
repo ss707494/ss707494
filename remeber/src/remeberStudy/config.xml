@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<!-- 数据文件地址 -->
+	<fileaddress>Test.txt</fileaddress>
+	
+	<packup>packup</packup>
+	
+	<packupfile>packup/packupfile.properties</packupfile>
+
+	<font>文泉驿正黑</font>
+
+</config>

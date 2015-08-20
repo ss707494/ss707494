@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/remeber/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/remeber/lib/mysql-connector-java-5.1.7-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
