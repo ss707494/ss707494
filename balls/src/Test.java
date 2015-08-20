@@ -8,17 +8,17 @@ public class Test {
 		World wo=new World();
 		Random ra=new Random();
 		final Ball zb;
-		wo.getMoving().add(
+		wo.addBall(
 				zb=new Ball(650, 300, 
 					30, 
 					Color.black)
 		);
 		for (int i = 0; i < 5; i++) {
 			boolean flag=false;
-			Ball b=new Ball(ra.nextInt(650)+100, 310, 
+			Ball b=new Ball(ra.nextInt(650)+100, 300,
 					30, 
 					Color.blue);
-			for (Moving m: wo.getMoving()) {
+			for (Moving m: wo.balls) {
 				if(m.touch(b)){
 					i--;
 					flag=true;
@@ -26,21 +26,21 @@ public class Test {
 				}
 			}
 			if (!flag) {
-				wo.getMoving().add(b);
+				wo.addBall(b);
 			}
 			
 		}
 		MouseAdapter l=new MouseAdapter() {
 			public void mouseClicked(MouseEvent e){
 //				zb.moveTo(Math.PI, 1);
-				zb.moveTo(e.getX(), e.getY(), 0.5);
-				System.out.println(e.getX());
+				zb.moveTo(e.getX(), e.getY(), 2);
+//				System.out.println(e.getX());
 			}
 		};
 		wo.addMouseListener(l);
 		wo.addMouseMotionListener(l);
 		wo.repaint();
-		for (Moving m : wo.getMoving()) {
+		for (Moving m : wo.balls) {
 			if (m instanceof Ball) {
 				((Ball)m).setH(wo.getHeight());
 				((Ball)m).setW(800);
@@ -49,7 +49,8 @@ public class Test {
 		}
 		wo.touchAll();
 		while (true) {
-			Thread.sleep(10);
+			Thread.sleep(5);
+			wo.step();
 			for (Moving m : wo.getMoving()) {
 //				((Ball)m).getPower(300, 200, 50.0*50/150);
 			}
